@@ -4,7 +4,7 @@ const path = require("path");
 const socketIo = require('socket.io');
 const bodyParser = require('body-parser');
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 const app = express();
 const httpServer = http.Server(app);
 const socketIoServer = socketIo(httpServer, {
