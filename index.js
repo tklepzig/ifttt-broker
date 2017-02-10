@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //test with curl: curl -H "Content-Type: application/json" -d "{\"msg\": 21}" http://localhost:[port]
 app.post("/", (req, res) => {
     socketIoServer.sockets.emit("message", req.body.msg);
+
+    return res.sendStatus(200);
 });
 
 socketIoServer.on('connection', function (socket) {
